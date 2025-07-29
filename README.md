@@ -51,6 +51,10 @@
 
 <img width="959" height="443" alt="Image" src="https://github.com/user-attachments/assets/b24a5fda-ad52-4fc6-85f5-823cb9a9a318" />
 
+# 🚀 Key features
+
+<img width="959" height="440" alt="Image" src="https://github.com/user-attachments/assets/737d9cc9-f0b7-4e13-bed0-79d799608b20" />
+
 
 ### 🎯 Our Mission
 To democratize cryptocurrency knowledge and trading by providing an intuitive, feature-rich platform that bridges the gap between complex market data and user-friendly interfaces.
