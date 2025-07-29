@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -23,6 +21,7 @@ const CryptoCalendar: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
 
+  // Handle user auth and check admin
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((u) => {
       setUser(u);
@@ -33,7 +32,7 @@ const CryptoCalendar: React.FC = () => {
     return () => unsub();
   }, []);
 
-  // Fetch events from Firestore based on selected date
+  // Fetch events for selected date
   useEffect(() => {
     const dateStr = selectedDate.toISOString().split("T")[0];
     const q = query(collection(db, "events"), where("date", "==", dateStr));
@@ -59,21 +58,28 @@ const CryptoCalendar: React.FC = () => {
         <p className="text-gray-400 mt-2">Select a date to view events.</p>
       </motion.div>
 
-      {/* Calendar + Event Display */}
       <div className="flex flex-col lg:flex-row gap-8">
+        {/* Calendar */}
         <Card className="w-full lg:w-1/3 bg-gray-950 border-none">
           <CardHeader>
             <CardTitle className="text-teal-400 text-lg">📅 Select Date</CardTitle>
           </CardHeader>
           <CardContent>
             <Calendar
-              onChange={setSelectedDate}
+              onChange={(value) => {
+                if (Array.isArray(value)) {
+                  setSelectedDate(value[0]);
+                } else {
+                  setSelectedDate(value);
+                }
+              }}
               value={selectedDate}
               className="rounded-lg bg-gray-800 text-white border-none"
             />
           </CardContent>
         </Card>
 
+        {/* Events */}
         <Card className="w-full lg:w-2/3 bg-gray-950 border-none">
           <CardHeader>
             <CardTitle className="text-blue-400 text-lg">
@@ -91,6 +97,7 @@ const CryptoCalendar: React.FC = () => {
                       <a
                         href={e.link}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="text-blue-400 hover:underline text-sm block mt-1"
                       >
                         🔗 {e.link}
@@ -106,7 +113,7 @@ const CryptoCalendar: React.FC = () => {
         </Card>
       </div>
 
-      {/* Admin Upload */}
+      {/* Admin Form */}
       {isAdmin && (
         <div className="mt-10">
           <AddCryptoEventForm onEventAdded={() => {}} />

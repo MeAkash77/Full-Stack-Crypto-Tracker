@@ -1,4 +1,3 @@
-// ChatRoom.tsx
 import { FC, useEffect, useRef, useState } from "react";
 import {
   addDoc,
@@ -9,8 +8,8 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
-import { EmojiClickData } from "emoji-picker-react";
-import EmojiPicker from "emoji-picker-react";
+import EmojiPicker from "emoji-picker-react"; // ✅ Correct default import
+import { EmojiClickData, Theme } from "emoji-picker-react"; // ✅ Separate named imports
 import { getAuth } from "firebase/auth";
 import toast from "react-hot-toast";
 import { Smile, Send, UserCircle2 } from "lucide-react";
@@ -101,35 +100,36 @@ const ChatRoom: FC = () => {
         </div>
 
         {user ? (
-          <>
-            <div className="px-4 py-4 border-t border-gray-600 bg-[#1f2937]">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setShowEmoji((s) => !s)}
-                  className="p-2 hover:bg-gray-700 rounded-full transition"
-                >
-                  <Smile className="w-5 h-5 text-yellow-400" />
-                </button>
-                <input
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                  placeholder="Type a message..."
-                  className="flex-1 bg-gray-700 text-sm px-4 py-2 rounded-xl outline-none focus:ring-2 focus:ring-yellow-400"
-                />
-                <button
-                  onClick={handleSend}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-xl font-semibold flex items-center gap-2"
-                >
-                  <Send className="w-4 h-4" /> Send
-                </button>
-              </div>
-              {showEmoji && (
-                <div className="mt-3 bg-[#0f172a] rounded-lg">
-                  <EmojiPicker onEmojiClick={addEmoji} theme="dark" />
-                </div>
-              )}
+          <div className="px-4 py-4 border-t border-gray-600 bg-[#1f2937]">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowEmoji((s) => !s)}
+                className="p-2 hover:bg-gray-700 rounded-full transition"
+              >
+                <Smile className="w-5 h-5 text-yellow-400" />
+              </button>
+              <input
+                value={newMessage}
+                onChange={(e) => setNewMessage(e.target.value)}
+                placeholder="Type a message..."
+                className="flex-1 bg-gray-700 text-sm px-4 py-2 rounded-xl outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+              <button
+                onClick={handleSend}
+                className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-xl font-semibold flex items-center gap-2"
+              >
+                <Send className="w-4 h-4" /> Send
+              </button>
             </div>
-          </>
+            {showEmoji && (
+              <div className="mt-3 bg-[#0f172a] rounded-lg">
+                <EmojiPicker
+                  onEmojiClick={addEmoji}
+                  theme={Theme.DARK}
+                />
+              </div>
+            )}
+          </div>
         ) : (
           <div className="text-center text-red-400 py-4">
             <UserCircle2 className="w-6 h-6 inline-block mr-2" />

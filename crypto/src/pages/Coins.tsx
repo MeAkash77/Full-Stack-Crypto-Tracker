@@ -1,3 +1,4 @@
+// Coins.tsx
 import { FC, useState, useEffect } from "react";
 import { fetchCoins } from "../services/api";
 import { Coin } from "../services/types";
@@ -14,11 +15,16 @@ const Coins: FC = () => {
 
   useEffect(() => {
     const getCoins = async () => {
-      setLoading(true);
-      const data = await fetchCoins();
-      setCoins(data);
-      setFilteredCoins(data);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const data = await fetchCoins();
+        setCoins(data);
+        setFilteredCoins(data);
+      } catch (err) {
+        console.error("Error fetching coins:", err);
+      } finally {
+        setLoading(false);
+      }
     };
     getCoins();
   }, []);
@@ -83,6 +89,7 @@ const Coins: FC = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
+            {/* onClick passed as prop */}
             <CoinCard
               coin={coin}
               onClick={() => handleCoinSelection(coin.id)}
@@ -100,7 +107,8 @@ const Coins: FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <h2 className="text-xl font-bold text-teal-400 mb-4">
-            Historical Data for {selectedCoin.charAt(0).toUpperCase() + selectedCoin.slice(1)}
+            Historical Data for{" "}
+            {selectedCoin.charAt(0).toUpperCase() + selectedCoin.slice(1)}
           </h2>
           <HistoricalChart cryptoId={selectedCoin} />
         </motion.div>

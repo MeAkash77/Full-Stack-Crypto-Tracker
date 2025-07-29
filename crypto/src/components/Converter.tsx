@@ -19,7 +19,10 @@ const CryptoConverter = () => {
   const [currencies, setCurrencies] = useState([]);
   const [fromCurrency, setFromCurrency] = useState('bitcoin');
   const [toCurrency, setToCurrency] = useState('usd');
-  const [amount, setAmount] = useState(1);
+  
+  // ✅ Fix: use string instead of number
+  const [amount, setAmount] = useState<string>("");
+
   const [conversionRate, setConversionRate] = useState(null);
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,7 +30,6 @@ const CryptoConverter = () => {
   const [user, setUser] = useState(null);
   const [conversionHistory, setConversionHistory] = useState([]);
 
-  // Listen for auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -38,7 +40,6 @@ const CryptoConverter = () => {
     return () => unsubscribe();
   }, []);
 
-  // Fetch coin and fiat lists
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,7 +58,6 @@ const CryptoConverter = () => {
     fetchData();
   }, []);
 
-  // Fetch conversion rate
   useEffect(() => {
     const fetchConversionRate = async () => {
       try {
@@ -77,10 +77,10 @@ const CryptoConverter = () => {
     fetchConversionRate();
   }, [fromCurrency, toCurrency, baseCurrency]);
 
-  // Perform conversion and save to Firestore
   useEffect(() => {
-    if (conversionRate && amount) {
-      const result = amount * conversionRate;
+    const parsedAmount = parseFloat(amount);
+    if (conversionRate && !isNaN(parsedAmount)) {
+      const result = parsedAmount * conversionRate;
       setConvertedAmount(result);
 
       if (user) {
@@ -89,7 +89,7 @@ const CryptoConverter = () => {
             await addDoc(collection(db, "users", user.uid, "conversions"), {
               from: fromCurrency,
               to: toCurrency,
-              amount: parseFloat(amount),
+              amount: parsedAmount,
               result,
               rate: conversionRate,
               timestamp: serverTimestamp()
@@ -104,7 +104,6 @@ const CryptoConverter = () => {
     }
   }, [conversionRate, amount, user]);
 
-  // Fetch user's past conversions
   const fetchConversionHistory = async (uid) => {
     try {
       const q = query(collection(db, "users", uid, "conversions"), orderBy("timestamp", "desc"));
@@ -119,18 +118,14 @@ const CryptoConverter = () => {
     }
   };
 
-  // Clear conversion history
   const clearConversionHistory = async () => {
     if (!user) return;
-
     try {
       const q = query(collection(db, "users", user.uid, "conversions"));
       const querySnapshot = await getDocs(q);
-
       const deletePromises = querySnapshot.docs.map((docSnap) =>
         deleteDoc(doc(db, "users", user.uid, "conversions", docSnap.id))
       );
-
       await Promise.all(deletePromises);
       setConversionHistory([]);
       alert("Conversion history cleared!");
@@ -145,7 +140,6 @@ const CryptoConverter = () => {
       <div className="bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">Crypto and Currency Converter</h2>
 
-        {/* Base Currency */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Select Base Currency:</label>
           <select
@@ -158,7 +152,6 @@ const CryptoConverter = () => {
           </select>
         </div>
 
-        {/* Amount */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Amount:</label>
           <input
@@ -169,7 +162,6 @@ const CryptoConverter = () => {
           />
         </div>
 
-        {/* From Crypto */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">From (Crypto):</label>
           <select
@@ -185,7 +177,6 @@ const CryptoConverter = () => {
           </select>
         </div>
 
-        {/* To Fiat */}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">To (Currency):</label>
           <select
@@ -201,7 +192,6 @@ const CryptoConverter = () => {
           </select>
         </div>
 
-        {/* Result */}
         <div className="mt-6 text-center">
           <h3 className="text-xl font-medium mb-2">Converted Amount:</h3>
           {loading ? (
@@ -217,7 +207,6 @@ const CryptoConverter = () => {
         </div>
       </div>
 
-      {/* Previous Conversions */}
       {user && conversionHistory.length > 0 && (
         <div className="mt-10 w-full max-w-2xl bg-gray-800 p-6 rounded-lg shadow-md">
           <div className="flex justify-between items-center mb-4">

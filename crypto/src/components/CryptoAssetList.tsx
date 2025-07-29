@@ -1,4 +1,5 @@
 // src/components/CryptoAssetList.tsx
+import PriceHistory from './PriceHistory'; // ✅ adjust the path if needed
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
