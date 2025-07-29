@@ -12,7 +12,7 @@
 
 **A comprehensive, modern cryptocurrency tracking and social platform built with cutting-edge web technologies**
 
-[🔗 Live Demo](#) | [📖 Documentation](#table-of-contents) | [🐛 Report Bug](https://github.com/Hari-hara7/Crypto/issues) | [💡 Request Feature](https://github.com/Hari-hara7/Crypto/issues)
+[🔗 Live Demo](https://full-stack-crypto-tracker-alpha.vercel.app/) | [📖 Documentation](#table-of-contents) | [🐛 Report Bug](https://github.com/Hari-hara7/Crypto/issues) | [💡 Request Feature](https://github.com/Hari-hara7/Crypto/issues)
 
 </div>
 
