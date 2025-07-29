@@ -52,7 +52,7 @@
 <img width="959" height="440" alt="Image" src="https://github.com/user-attachments/assets/737d9cc9-f0b7-4e13-bed0-79d799608b20" />
 
 
-# 🚀 Key features
+# 🚀 Chat Bot
 <img width="959" height="442" alt="Image" src="https://github.com/user-attachments/assets/da4b2fbc-e2f8-4d54-92f3-385eaf56aa65" />
 
 
