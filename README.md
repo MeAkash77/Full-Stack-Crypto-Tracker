@@ -40,20 +40,20 @@
 **Crypto Tracker** is a state-of-the-art web application that revolutionizes how users interact with cryptocurrency markets. Combining real-time market data, social features, and educational resources, our platform serves as a comprehensive hub for crypto enthusiasts, traders, and newcomers alike.
 
 # 🚀 Front Page
-
 <img width="959" height="441" alt="Image" src="https://github.com/user-attachments/assets/1f0bca58-00f6-40a7-bf72-86c407c634ac" />
 
 # 🚀 Sign in Page
-
 <img width="959" height="441" alt="Image" src="https://github.com/user-attachments/assets/c1d198f7-b7d4-4840-abb4-83157faf5593" />
 
 # 🚀 Post Page
-
 <img width="959" height="443" alt="Image" src="https://github.com/user-attachments/assets/b24a5fda-ad52-4fc6-85f5-823cb9a9a318" />
 
 # 🚀 Key features
-
 <img width="959" height="440" alt="Image" src="https://github.com/user-attachments/assets/737d9cc9-f0b7-4e13-bed0-79d799608b20" />
+
+
+# 🚀 Key features
+<img width="959" height="442" alt="Image" src="https://github.com/user-attachments/assets/da4b2fbc-e2f8-4d54-92f3-385eaf56aa65" />
 
 
 ### 🎯 Our Mission
