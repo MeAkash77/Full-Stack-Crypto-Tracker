@@ -386,6 +386,8 @@ socket.on('priceUpdate', (data) => {
   <img src="crypto.jpg" alt="Crypto Tracker Architecture" width="100%" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 </div>
 
+![Image](https://github.com/user-attachments/assets/4a275ede-01fc-48a3-b818-9b48d722752f)
+
 ### 🔄 Data Flow Architecture
 
 ```mermaid
