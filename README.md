@@ -207,7 +207,7 @@ Before you begin, ensure you have the following installed:
 
 #### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/Hari-hara7/Crypto.git
+git clone https://github.com/MeAkash77/Full-Stack-Crypto-Tracker.git
 cd Crypto
 ```
 
@@ -514,16 +514,6 @@ docs: update installation guide
 style: improve button component styling
 ```
 
-### 👥 Contributors
-
-<div align="center">
-
-[![Contributors](https://contrib.rocks/image?repo=Hari-hara7/Crypto)](https://github.com/Hari-hara7/Crypto/graphs/contributors)
-
-</div>
-
----
-
 ## 📄 License
 
 This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
@@ -627,28 +617,12 @@ A: Ensure the backend server is running and CORS is properly configured for your
 
 <div align="center">
 
-### 🌟 Join Our Community
-
-[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-blue?style=for-the-badge&logo=github)](https://github.com/Hari-hara7/Crypto/discussions)
-[![Discord](https://img.shields.io/badge/Discord-Join_Us-7289da?style=for-the-badge&logo=discord&logoColor=white)](#)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow_Us-1da1f2?style=for-the-badge&logo=twitter&logoColor=white)](#)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
-
-</div>
-
-### 📞 Get Support
-
-- 🐛 **Bug Reports**: [Create an Issue](https://github.com/Hari-hara7/Crypto/issues/new?template=bug_report.md)
-- 💡 **Feature Requests**: [Request Feature](https://github.com/Hari-hara7/Crypto/issues/new?template=feature_request.md)
-- 💬 **General Discussion**: [GitHub Discussions](https://github.com/Hari-hara7/Crypto/discussions)
-- 📧 **Direct Contact**: [Email Us](mailto:support@cryptotracker.dev)
-
 ### 🚀 Stay Updated
 
 - ⭐ **Star the Repository** to stay informed about updates
 - 👀 **Watch releases** for new version notifications
 - 📧 **Subscribe to our newsletter** for development updates
-- 🐦 **Follow us on social media** for news and tips
+- 🐦 **Follow me on social media** for news and tips
 
 ### 🤝 Community Guidelines
 
@@ -673,18 +647,7 @@ Special thanks to all contributors, the open-source community, and the following
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=flat-square)](https://www.mongodb.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-Deployment-black?style=flat-square)](https://vercel.com/)
 
-### 💖 Support the Project
-
-If you find this project helpful, please consider:
-
-- ⭐ Starring the repository
-- 🍴 Forking and contributing
-- 💰 [Sponsoring the project](https://github.com/sponsors/Hari-hara7)
-- ☕ [Buy us a coffee](https://www.buymeacoffee.com/cryptotracker)
-
----
-
-**Made with ❤️ by the Hariharanath**
+**Made with ❤️ by the Akash**
 
 *Last updated: July 2025*
 
