@@ -8,8 +8,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
-import EmojiPicker from "emoji-picker-react"; // ✅ Correct default import
-import { EmojiClickData, Theme } from "emoji-picker-react"; // ✅ Separate named imports
+import EmojiPicker, { EmojiClickData, Theme } from "emoji-picker-react"; // ✅ Separate named imports
 import { getAuth } from "firebase/auth";
 import toast from "react-hot-toast";
 import { Smile, Send, UserCircle2 } from "lucide-react";
